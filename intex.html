@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>OLYMPICSPORTS</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/all.min.css">
+        <link rel="stylesheet" href="css/fontawesome.min.css">
+    </head>
+    <body>
+        <section class="header">
+                <h1><b>Olympic Games Paris 2024</b></h1>
+                <h2>26 July - 11 August, 2024</h2>
+                    <div class="clock">
+                        <div>
+                            <span class="days" id="day">00</span>
+                            <span>:</span>
+                            <div class="small">Days</div>
+                        </div>
+                        <div>
+                            <span class="hrs" id="hr">00</span>
+                            <span>:</span>
+                            <div class="small">Hrs</div>
+                        </div>
+                        <div>
+                            <span class="mins" id="min">00</span>
+                            <span>:</span>
+                            <div class="small">Mins</div>
+                        </div>
+                        <div>                    
+                            <span class="secs" id="sec">00</span>
+                            <div class="small">Secs</div>
+                        </div>
+                    </div>
+                <p id="demo"></p>
+        </section>
+
+        <script>
+            let deadline = new Date("jul 26, 2024 23:00:13").getTime();
+            let x = setInterval(function() {
+                let now = new Date().getTime();
+                let t = deadline-now;
+                let days = Math.floor(t/(1000*60*60*24));
+                let hrs = Math.floor((t%(1000*60*60*24))/(1000*60*60));
+                let mins = Math.floor((t%(1000*60*60))/(1000*60));
+                let secs = Math.floor((t%(1000*60))/1000);
+
+                document.getElementById("day").innerHTML=days;
+                document.getElementById("hr").innerHTML=hrs;
+                document.getElementById("min").innerHTML=mins;
+                document.getElementById("sec").innerHTML=secs;
+
+                if(t<0){
+                    clearInterval.getElementById("demo").innerHTML="STARTS ALREADY";
+                    clearInterval.getElementById("day").innerHTML="0";
+                    clearInterval.getElementById("hr").innerHTML="0";
+                    clearInterval.getElementById("min").innerHTML="0";
+                    clearInterval.getElementById("sec").innerHTML="0";
+                }
+            }, 1000);
+        </script>
+    </body>
+</html>
